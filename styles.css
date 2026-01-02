@@ -1,0 +1,27 @@
+#input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 40px;
+}
+
+.input-item {
+  display: relative;
+  font-size: 30px;
+  margin: 0 5px;
+}
+
+input.input-item {
+  width: 80px;
+  max-width: 80px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+#reps-container {
+  width: 300px;
+  margin-top: 20px;
+  font-size: 30px;
+}
