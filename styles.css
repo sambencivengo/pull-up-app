@@ -1,9 +1,9 @@
 #input {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  text-align: left;
   justify-content: center;
-  width: 300px;
+  width: 500px;
   height: 40px;
 }
 
@@ -21,7 +21,7 @@ input.input-item {
 }
 
 #reps-container {
-  width: 300px;
+  width: 500px;
   margin-top: 20px;
   font-size: 30px;
 }
