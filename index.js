@@ -18,19 +18,38 @@ function createWeeklyPullUpPlan(max) {
 const input = document.getElementById("max-reps");
 const output = document.getElementById("reps-container");
 
-input.addEventListener("input", () => {
+if (!input || !output) {
+  throw new Error("Required elements not found");
+}
+
+const savedMax = localStorage.getItem("repMax");
+if (savedMax) {
+  input.value = savedMax;
+}
+
+function updatePlan() {
+  if (!output) return;
+
   const max = Number(input.value);
   output.innerHTML = "";
 
   if (!max || max < 5) return;
 
+  localStorage.setItem("repMax", String(max));
+
   const plan = createWeeklyPullUpPlan(max);
 
   plan.forEach((day, index) => {
     const ul = document.createElement("ul");
-    repsInADay = day.join(", ");
+    const repsInADay = day.join(", ");
     ul.innerHTML = `<strong>Day ${index + 1}</strong>: ${repsInADay}`;
 
     output.appendChild(ul);
   });
-});
+}
+
+input.addEventListener("input", updatePlan);
+
+if (savedMax) {
+  updatePlan();
+}
